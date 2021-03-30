@@ -1,0 +1,28 @@
+Commands
+---------------------------------------------------------------------------------------------
+
+python manage.py makemigrations    ---> make code for migration
+python manage.py migrate                     ---> actually migrate that code
+python manage.py sqlmigrate               ---> check the codes used for sql
+python manage.py shell                           ---> get a shell for running sql commands
+	inside shell
+	User.objects.all()                    ---> User is the name of model
+	User.objects.filter(username='james')
+	User.objects.filter(username='james').first().id
+
+Notes
+---------------------------------------------------------------------------------------------
+1. For using templates in any app we must set it as an installed app.
+
+2. Crispy: for using crispy we need to add it to installed apps
+and also set CRISPY_TEMPLATE_PACK = 'bootstrap4'
+which is by default bootstrap2
+
+3. We can set where a user will go after login by changing
+LOGIN_REDIRECT_URL in settings
+
+4. We can set where a user will go if login_required failed by changing
+LOGIN_URL = 'login' in settings
+
+5. By default we are shown GMT time we can change that by changing
+TIME_ZONE in settings

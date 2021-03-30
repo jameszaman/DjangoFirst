@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block default_tile %} Register for new user {% endblock default_tile %}
+
+{% block content %}
+	<div>
+      <form method="POST">
+         {% csrf_token %}
+         <fieldset>
+            <legend>Join today</legend>
+            {{ form|crispy }}
+         </fieldset>
+         <div>
+            <button class="btn btn-outline-info" type="submit"> Sign Up</button>
+         </div>
+      </form>
+      <div>
+         <small>Already have an account? <a href="{% url 'login' %}">Sign In</a></small>
+      </div>
+   </div>
+{% endblock content %}

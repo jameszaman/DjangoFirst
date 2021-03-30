@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block default_tile %} Blog Details {% endblock default_tile %}
+
+{% block content %}
+   <h1>{{ object.title }}</h1>
+   <h4 style="text-align: left">{{ object.date | date:"M d, Y" }}</h4>
+   {% if object.author == user%}
+      <div>
+         <a href="{%url 'blog-update' object.id%}">Edit</a> | <a href="{%url 'blog-delete' object.id%}">Delete</a>
+      </div>
+   {%endif%}
+   <p class="container">{{ object.text }}</p>
+{% endblock %}

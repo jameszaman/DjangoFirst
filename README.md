@@ -1,0 +1,1 @@
+This website was is part of our Web development class. It was mainly done by my course Teacher.

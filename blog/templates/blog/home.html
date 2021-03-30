@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block default_tile %} Blog Homepage {% endblock default_tile %}
+
+{% block content %}
+{% for post in posts %}
+			<div>
+				<a href="{% url 'blog-detail' post.id %}"><h1>{{ post.title }}</h1></a>
+				<h4 style="text-align: right"><a href="#">{{ post.author }}</a> {{ post.date | date:"M d, Y" }}</h4>
+				<!-- <p class="ui text container">{{ post.text }}</p> -->
+			</div>
+			<hr>
+		{% endfor %}
+{% endblock %}

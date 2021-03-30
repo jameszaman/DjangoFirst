@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+{% block default_tile %} New Blog Post {% endblock default_tile %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+   <form method="POST">
+      {% csrf_token %}
+      <fieldset>
+         <legend>Blog Post Update</legend>
+         {{ form | crispy}}
+         <div>
+            <button type="submit" class="btn btn-outline-info">Post</button>
+         </div>
+      </fieldset>
+   </form>
+   <h1>{{ object.title }}</h1>
+   <h4 style="text-align: left">{{ object.date | date:"M d, Y" }}</h4>
+   <p class="container">{{ object.text }}</p>
+{% endblock %}

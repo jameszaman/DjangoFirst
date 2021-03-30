@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block default_tile %} Delete Blog Post {% endblock default_tile %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+   <form method="POST">
+      {% csrf_token %}
+      <fieldset>
+         <legend>Blog Post</legend>
+         <h2>Are you sure you want to delete: "{{object.title}}"?</h2>
+         <div>
+            <button type="submit" class="btn btn-danger">Yes, delete the post</button>
+            <a class="btn btn-outline" href="{%url 'blog-detail' object.id%}">No, I've changed my mind.</a>
+         </div>
+      </fieldset>
+   </form>
+   <!-- <h1>{{ object.title }}</h1>
+   <h4 style="text-align: left">{{ object.date | date:"M d, Y" }}</h4>
+   <p class="container">{{ object.text }}</p> -->
+{% endblock %}
